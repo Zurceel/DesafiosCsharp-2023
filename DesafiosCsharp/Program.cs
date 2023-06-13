@@ -1,51 +1,38 @@
-﻿//Console.WriteLine("Informe sua idade");
-//int idade = Convert.ToInt32(Console.ReadLine());
-
-//if (idade <= 59)
-//{
-//    Console.WriteLine("Você ainda não tem direito a tirar a carterinha de idoso");
-//    int anosfaltantes = 60 - idade;
-//    Console.WriteLine("Ainda falta " +  anosfaltantes + " para tirar a carteirinha de idoso");
-//    int diasfaltantes = anosfaltantes * 365;
-//    Console.WriteLine("Faltam " + diasfaltantes + " para tirar a carteirinha de idoso");
-//}else
-//{
-//    Console.WriteLine("Você tem direito a tirar a carteirinha de idoso");
-//}
-
-string nomeJogador;
+﻿string nomeJogador;
 
 Console.WriteLine("Bem vindo ao campionato de Poker!");
 
-Console.WriteLine("Qual o nome do jogador?");
-nomeJogador = Console.ReadLine().ToString();
+ExemploDoWhile();
 
-bool validacaojogador;
+//Console.WriteLine("Qual o nome do jogador?");
+//nomeJogador = Console.ReadLine().ToString();
 
-switch (nomeJogador)
-{
-    case "Gabriel":
-    case "Geovanna":
-    case "Gael":
-    case "Luiz":
-        Console.WriteLine("Jogador autorizado para o campionato de poker");
-        validacaojogador = true;
-        break;
-    default:
-        Console.WriteLine("Jogador não autorizado para o campionato de poker");
-        validacaojogador = false;
-        break;
-}
+//bool validacaojogador;
 
-if (validacaojogador)
-{
-    Console.WriteLine("Quantas vitórias você tem no torneio?");
-    int vitorias = Convert.ToInt32(Console.ReadLine());
-    int pontuacaoatual = Verificarpontuacao(vitorias);
-    Console.WriteLine("Você possui " + pontuacaoatual.ToString() + "pontos no torneio");
-    int pontuacaonova = BonificarParticipante(pontuacaoatual);
-    Console.WriteLine("Parabéns, voc^ganhou mais um ponto de bonificação. Agora sua pontuação é " + pontuacaonova.ToString());
-}
+//switch (nomeJogador)
+//{
+//    case "Gabriel":
+//    case "Geovanna":
+//    case "Gael":
+//    case "Luiz":
+//        Console.WriteLine("Jogador autorizado para o campionato de poker");
+//        validacaojogador = true;
+//        break;
+//    default:
+//        Console.WriteLine("Jogador não autorizado para o campionato de poker");
+//        validacaojogador = false;
+//        break;
+//}
+
+//if (validacaojogador)
+//{
+//    Console.WriteLine("Quantas vitórias você tem no torneio?");
+//    int vitorias = Convert.ToInt32(Console.ReadLine());
+//    int pontuacaoatual = Verificarpontuacao(vitorias);
+//    Console.WriteLine("Você possui " + pontuacaoatual.ToString() + "pontos no torneio");
+//    int pontuacaonova = BonificarParticipante(pontuacaoatual);
+//    Console.WriteLine("Parabéns, voc^ganhou mais um ponto de bonificação. Agora sua pontuação é " + pontuacaonova.ToString());
+//}
 
 
 // metodo de verificacao da pontuacao do jogador
@@ -65,5 +52,79 @@ int BonificarParticipante (int pontuacaoatual)
     pontuacaoatual++;
 
     return pontuacaoatual;
+}
+
+void ExemploForeach()
+{
+    string[] jogadores = { "Gabriel", "Geovanna", "Gael", "Luiz" };
+
+    foreach(string jogador in jogadores)
+    {
+        Console.WriteLine("Bem vindo as quartas de finais " + jogador);
+    }
+}
+
+void ExemploWhile()
+{
+    Console.WriteLine("Qual a sua pontuação atual?");
+    int pontuacaojogador = Convert.ToInt32(Console.ReadLine());
+
+    if (pontuacaojogador < 27)
+    {
+        while (pontuacaojogador < 27)
+        {
+            Console.WriteLine("Jogando!");
+            Console.WriteLine("Você ganhou? (S/N)");
+            string ganhou = Console.ReadLine();
+            if(ganhou == "S")
+            {
+                pontuacaojogador = pontuacaojogador + 3;
+            }
+            else
+            {
+                Console.WriteLine("Você infelizmente esta fora do toneio");
+                break;
+            }
+        }
+        Console.WriteLine("Você está nas quartas");
+    }
+    else
+    {
+        Console.WriteLine("Você esta nas quartas de final");
+    }
+
+}
+
+void ExemploDoWhile()
+{
+    Console.WriteLine("Qual a sua pontuação atual?");
+    int pontuacaojogador = Convert.ToInt32(Console.ReadLine());
+
+    if (pontuacaojogador < 27)
+    {
+        do
+        {
+            Console.WriteLine("Jogando!");
+            Console.WriteLine("Você ganhou? (S/N)");
+            string ganhou = Console.ReadLine();
+            if (ganhou == "S")
+            {
+                pontuacaojogador = pontuacaojogador + 3;
+            }
+            else
+            {
+                Console.WriteLine("Você infelizmente esta fora do toneio");
+                break;
+            }
+        }
+        while (pontuacaojogador < 27);
+
+        Console.WriteLine("Você está nas quartas");
+    }
+    else
+    {
+        Console.WriteLine("Você esta nas quartas de final");
+    }
+
 }
 
